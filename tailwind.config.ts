@@ -1,92 +1,120 @@
-// import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
+import tailwindAnimate from "tailwindcss-animate"
 
-// export default {
-//   content: [
-//     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-//     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-//     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-//   ],
-//   theme: {
-//     extend: {
-//       colors: {
-//         background: "var(--background)",
-//         foreground: "var(--foreground)",
-//       },
-//     },
-//   },
-//   plugins: [],
-// } satisfies Config;
-
-import { fontFamily } from "tailwindcss/defaultTheme"
-import tailwindAnimate from 'tailwindcss-animate';
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const config: Config = {
   darkMode: ["class"],
   content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        error: "#ffb4ab",
+        "tertiary-container": "#746599",
+        "on-tertiary": "#362857",
+        "on-primary-fixed-variant": "#0035be",
+        "primary-container": "#2e5bff",
+        "on-tertiary-fixed": "#211241",
+        "tertiary-fixed": "#e9ddff",
+        secondary: "#ffb59a",
+        "surface-container-lowest": "#0e0e0e",
+        "on-primary-fixed": "#001356",
+        "on-secondary-fixed-variant": "#802a00",
+        "on-background": "#e5e2e1",
+        "on-tertiary-fixed-variant": "#4d3f6f",
+        "surface-container-low": "#1c1b1b",
+        "surface-container-high": "#2a2a2a",
+        "secondary-fixed": "#ffdbce",
+        "on-secondary": "#5a1b00",
+        "outline-variant": "#434656",
+        "surface-tint": "#b8c3ff",
+        "on-primary": "#002388",
+        "on-tertiary-container": "#f6edff",
+        "surface-bright": "#393939",
+        "surface-container-highest": "#353534",
+        "secondary-fixed-dim": "#ffb59a",
+        tertiary: "#cfbef7",
+        "on-error": "#690005",
+        "on-secondary-container": "#531900",
+        surface: "#131313",
+        "inverse-primary": "#124af0",
+        "surface-variant": "#353534",
+        outline: "#8e90a2",
+        "inverse-on-surface": "#313030",
+        "primary-fixed": "#dde1ff",
+        "on-surface-variant": "#c4c5d9",
+        "on-error-container": "#ffdad6",
+        "surface-dim": "#131313",
+        primary: "#b8c3ff",
+        "secondary-container": "#ff5e07",
+        "surface-container": "#201f1f",
+        "on-secondary-fixed": "#370e00",
+        "inverse-surface": "#e5e2e1",
+        "on-surface": "#e5e2e1",
+        "primary-fixed-dim": "#b8c3ff",
+        "on-primary-container": "#efefff",
+        background: "#131313",
+        "error-container": "#93000a",
+        "tertiary-fixed-dim": "#cfbef7",
       },
       borderRadius: {
-        lg: `var(--radius)`,
-        md: `calc(var(--radius) - 2px)`,
-        sm: "calc(var(--radius) - 4px)",
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        full: "9999px",
+      },
+      spacing: {
+        "container-max": "1280px",
+        "section-padding-desktop": "120px",
+        gutter: "32px",
+        unit: "8px",
+        "section-padding-mobile": "64px",
+      },
+      maxWidth: {
+        "container-max": "1280px",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        "display-lg-mobile": ["var(--font-bricolage)"],
+        "label-caps": ["var(--font-space-mono)"],
+        "body-lg": ["var(--font-hanken)"],
+        "headline-sm": ["var(--font-bricolage)"],
+        "body-md": ["var(--font-hanken)"],
+        "headline-md": ["var(--font-bricolage)"],
+        "display-lg": ["var(--font-bricolage)"],
+      },
+      fontSize: {
+        "display-lg-mobile": [
+          "48px",
+          { lineHeight: "100%", letterSpacing: "-0.02em", fontWeight: "800" },
+        ],
+        "label-caps": [
+          "14px",
+          { lineHeight: "100%", letterSpacing: "0.1em", fontWeight: "700" },
+        ],
+        "body-lg": ["20px", { lineHeight: "160%", fontWeight: "400" }],
+        "headline-sm": ["24px", { lineHeight: "120%", fontWeight: "700" }],
+        "body-md": ["16px", { lineHeight: "150%", fontWeight: "400" }],
+        "headline-md": ["42px", { lineHeight: "110%", fontWeight: "700" }],
+        "display-lg": [
+          "84px",
+          { lineHeight: "90%", letterSpacing: "-0.04em", fontWeight: "800" },
+        ],
       },
       keyframes: {
+        float: {
+          "0%": { transform: "translateY(0px) rotate(0deg)" },
+          "50%": { transform: "translateY(-20px) rotate(2deg)" },
+          "100%": { transform: "translateY(0px) rotate(0deg)" },
+        },
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
       },
       animation: {
+        float: "float 6s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
@@ -94,3 +122,5 @@ module.exports = {
   },
   plugins: [tailwindAnimate],
 }
+
+export default config
