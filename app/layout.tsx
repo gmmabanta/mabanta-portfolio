@@ -30,7 +30,7 @@ const hanken = Hanken_Grotesk({
 export const metadata: Metadata = {
   title: "Mae Mabanta | Portfolio",
   description:
-    "AI Engineer & Creative Logician. Building the future with human logic & machine magic.",
+    "AI Engineer. Building the future with human logic & machine magic.",
 };
 
 export default function RootLayout({

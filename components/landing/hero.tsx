@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="z-10 relative gap-gutter grid grid-cols-12 mx-auto w-full max-w-container-max">
         <div className="col-span-12 md:col-span-10 lg:col-span-8">
           <span className="block mb-4 font-label-caps text-label-caps text-secondary">
-            AI ENGINEER &amp; CREATIVE LOGICIAN
+            AI ENGINEER
           </span>
           <h1 className="mb-8 font-display-lg-mobile md:font-display-lg text-display-lg-mobile text-primary md:text-display-lg leading-[0.85] tracking-tighter">
             MAE

@@ -17,12 +17,12 @@ type Experience = {
 
 const EXPERIENCES: Experience[] = [
   {
-    period: "2022 - PRESENT",
-    title: "Senior AI Engineer",
+    period: "MAY 2025 - PRESENT",
+    title: "Application Developer — IBM Solutions Delivery",
     description:
-      "Leading the development of generative pipelines for enterprise-scale creative tools. Optimizing inference speeds and ensuring model alignment.",
-    tags: ["PYTORCH", "TRANSFORMERS", "CUDA"],
-    icon: "neurology",
+      "Building AI-powered products end to end: an agentic AI coding assistant prepared for commercialization, a Japanese localization suite, and an end-to-end agentic solution for Maximo automation scripting using WatsonX Orchestrate.",
+    tags: ["NEXTJS", "FASTAPI", "LANGGRAPH", "WATSONX", "AWS BEDROCK"],
+    icon: "smart_toy",
     accent: {
       border: "border-primary-container",
       icon: "text-primary",
@@ -30,16 +30,29 @@ const EXPERIENCES: Experience[] = [
     },
   },
   {
-    period: "2020 - 2022",
-    title: "ML Developer",
+    period: "AUG 2021 - APR 2025",
+    title: "Engineer, Cloud Solutions — Samsung R&D Philippines",
     description:
-      "Focused on computer vision applications for autonomous systems. Designed custom CNN architectures for real-time edge processing.",
-    tags: ["TENSORFLOW", "OPENCV", "SCIKIT-LEARN"],
-    icon: "visibility",
+      "Led fullstack development of an internal AI Dashboard and its release to other R&D centers, integrating the company IdP. Migrated legacy dashboards to NextJS and React, improving performance, maintainability, and user experience.",
+    tags: ["NEXTJS", "REACT", "TYPESCRIPT", "PRISMA", "POSTGRES"],
+    icon: "cloud",
     accent: {
       border: "border-secondary",
       icon: "text-secondary",
       rotation: "-rotate-12",
+    },
+  },
+  {
+    period: "OCT 2020 - JAN 2021",
+    title: "JavaScript Developer — Deloitte Consulting PH",
+    description:
+      "Analyzed current workflow implementations, customized scripts, and proposed workflow improvements using ServiceNow for clients based in New Zealand.",
+    tags: ["SERVICENOW", "JAVASCRIPT", "WORKFLOWS"],
+    icon: "integration_instructions",
+    accent: {
+      border: "border-tertiary",
+      icon: "text-tertiary",
+      rotation: "rotate-6",
     },
   },
 ];
@@ -100,13 +113,14 @@ export default function Experience() {
         <div className="flex md:flex-row flex-col justify-between items-end gap-8 mb-24">
           <div>
             <h2 className="mb-4 font-headline-md text-headline-md text-primary">
-              My Journey in AI
+              Work & Research Experience
             </h2>
             <div className="bg-secondary-container w-32 h-2" />
           </div>
           <p className="max-w-md font-body-md text-body-md text-on-surface-variant">
-            A chronological record of solving impossible problems and training
-            models that actually understand the assignment.
+            A chronological record of building fullstack products, shipping
+            agentic AI solutions, and modernizing applications across global
+            teams.
           </p>
         </div>
 

@@ -1,0 +1,114 @@
+export const metadata = {
+  title: "Creating Skills for AI Agents",
+  description:
+    'What "skills" really are, why they make agents more capable and portable, and how to build one using resources like skills.sh.',
+  date: "2026-06-24",
+  author: "Glorie Mae Mabanta",
+  image:
+    "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
+  imageAlt:
+    "An abstract render of glowing interconnected nodes representing a network of reusable agent capabilities.",
+};
+
+If you have spent any time building with AI agents, you have probably hit the same
+wall I did: the model is brilliant at reasoning, but it cannot actually _do_ much
+on its own. It can plan a deployment, but it cannot run `kubectl`. It can describe
+how to summarize a PDF, but it cannot open the file. The missing piece is **skills** —
+small, reusable units of capability that turn a chatty model into a system that
+gets work done.
+
+## What is a skill?
+
+A skill is a packaged, self-contained capability that an agent can discover and
+invoke. Think of it as a function with a description the model can understand. Each
+skill typically bundles three things:
+
+- **A clear description** of what the skill does and when to use it, written for the
+  model rather than for a human compiler.
+- **An input/output contract** — the parameters it expects and the shape of what it
+  returns.
+- **The implementation** — the actual code, prompt, or API call that performs the work.
+
+Because skills are modular, they are also **portable**. A well-defined "send Slack
+message" skill can be dropped into a customer-support agent, a CI/CD agent, or a
+personal assistant without rewriting it each time. This is the same instinct that
+made reusable components win in frontend development — only now the consumer is an
+LLM deciding, at runtime, which tools it needs.
+
+## How agents use skills
+
+Most agent frameworks (LangGraph, Watsonx Orchestrate, the various MCP-based
+runtimes, and others) follow a similar loop:
+
+1. The agent receives a goal and inspects the list of available skills, reading each
+   skill's description.
+2. It reasons about which skill — if any — moves it closer to the goal.
+3. It calls the skill with structured arguments.
+4. It observes the result and decides whether to call another skill, finish, or ask
+   for clarification.
+
+The key insight is that **the model never needs to know how a skill is implemented**.
+It only needs a trustworthy description and a stable contract. That separation is
+what lets the same skill be shared across completely different agents.
+
+## Where to find skills: skills.sh
+
+You do not have to build every skill from scratch. [skills.sh](https://www.skills.sh/)
+is a resource for discovering and reusing skills across agents — a registry of
+ready-made capabilities you can plug into your own agent instead of reinventing them.
+Browsing a registry like this is a great way to learn what a well-scoped skill looks
+like before you write your own.
+
+### An example skill and how to use it
+
+Imagine a skill from skills.sh called **`web-search`**. Conceptually it is described
+to the agent something like this:
+
+```json
+{
+  "name": "web-search",
+  "description": "Search the public web and return the top results as titles, snippets, and URLs. Use when the answer may be recent or outside training data.",
+  "input": {
+    "query": "string — the search query"
+  },
+  "output": {
+    "results": "array of { title, snippet, url }"
+  }
+}
+```
+
+An agent answering the question _"What changed in the latest Next.js release?"_ would
+reason that its training data may be stale, select the `web-search` skill, and call it:
+
+```json
+{
+  "skill": "web-search",
+  "arguments": { "query": "Next.js latest release notes" }
+}
+```
+
+The skill returns structured results, the agent reads the snippets, and it composes a
+grounded answer with citations — something it simply could not do reliably on its own.
+The same `web-search` skill could be reused tomorrow by a research agent, a
+shopping-assistant agent, or a news-summarization agent, with zero changes.
+
+## Designing your own skills
+
+When you go to write your own, a few principles keep them reliable:
+
+- **Make the description do the work.** The model picks skills based on the
+  description, so write it the way you would brief a new teammate — what it does, when
+  to use it, and when _not_ to.
+- **Keep each skill focused.** One skill, one job. Composing several small skills beats
+  one monolithic skill the model struggles to reason about.
+- **Return structured, predictable output.** Agents chain skills together, so the
+  output of one is often the input to the next.
+- **Fail loudly and informatively.** A clear error message lets the agent recover or
+  ask for help instead of hallucinating.
+
+## Closing thought
+
+Skills are quietly becoming the unit of reuse for agentic AI, the way components
+became the unit of reuse for the web. Start by exploring an existing skill on
+[skills.sh](https://www.skills.sh/), wire it into a small agent, and watch how much
+more capable the system becomes the moment it can actually _act_.

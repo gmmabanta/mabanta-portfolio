@@ -15,12 +15,12 @@ export function withBasePath(path: string): string {
 
 export const siteConfig = {
   name: "Mae Mabanta",
-  email: "hello@maemabanta.com",
+  email: "gmmabanta@gmail.com",
   resumePath: "/resume/mae-mabanta-resume.pdf",
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/glorie-mae-mabanta" },
     { label: "GitHub", href: "https://github.com/gmmabanta" },
-    { label: "Email", href: "mailto:hello@maemabanta.com" },
+    { label: "Email", href: "mailto:gmmabanta@gmail.com" },
   ],
 };
 
