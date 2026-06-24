@@ -64,15 +64,16 @@ const components: MDXComponents = {
     <strong className="font-bold text-on-surface">{children}</strong>
   ),
   code: ({ children }) => (
-    <code className="bg-surface-container-high px-1.5 py-0.5 rounded font-label-caps text-secondary text-sm">
+    <code className="bg-surface-container-high px-1.5 py-0.5 rounded font-label-caps text-secondary text-sm whitespace-pre-wrap">
       {children}
     </code>
   ),
   pre: ({ children }) => (
-    <pre className="bg-surface-container-low my-8 p-6 border-2 rounded-xl border-outline-variant overflow-x-auto text-on-surface text-sm">
+    <pre className="[&>code]:block bg-surface-container-low [&>code]:bg-transparent my-8 p-6 [&>code]:p-0 border-2 rounded-xl border-outline-variant max-w-full overflow-x-auto [&>code]:font-normal text-on-surface [&>code]:text-on-surface text-sm [&>code]:break-words whitespace-pre-wrap [&>code]:whitespace-pre-wrap [&>code]:[text-wrap:auto]">
       {children}
     </pre>
   ),
+
   img: (props) => (
     <Image
       sizes="100vw"
