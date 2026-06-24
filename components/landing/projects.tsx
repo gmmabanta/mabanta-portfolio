@@ -18,11 +18,11 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: "Generative Design Studio",
+    title: "Agentic AI Coding Assistant",
     description:
-      "An end-to-end pipeline that turns plain-language briefs into production-ready brand systems using fine-tuned diffusion models.",
-    tags: ["DIFFUSION", "NEXT.JS", "FASTAPI"],
-    icon: "palette",
+      "An AI coding assistant built from the ground up using an agentic AI approach, with authorization features, performance optimizations, and end-to-end readiness for commercialization.",
+    tags: ["AGENTIC AI", "LANGGRAPH", "NEXT.JS"],
+    icon: "smart_toy",
     href: "/contact",
     accent: {
       border: "border-primary-container",
@@ -31,11 +31,11 @@ const PROJECTS: Project[] = [
     },
   },
   {
-    title: "Edge Vision Toolkit",
+    title: "SAP Terms Translator",
     description:
-      "A real-time object-detection toolkit optimized for low-power edge devices, shipping inference under 30ms on commodity hardware.",
-    tags: ["PYTORCH", "ONNX", "CUDA"],
-    icon: "visibility",
+      "A proof-of-concept agentic AI application that translates SAP terminology between English and Japanese, presented to several Japanese enterprise clients.",
+    tags: ["AGENTIC AI", "LLM", "FASTAPI"],
+    icon: "translate",
     href: "/contact",
     accent: {
       border: "border-secondary",
@@ -44,16 +44,29 @@ const PROJECTS: Project[] = [
     },
   },
   {
-    title: "Prompt Ops Platform",
+    title: "AI QA Evidence Validator",
     description:
-      "A collaborative workspace for versioning, evaluating, and shipping LLM prompts with built-in regression testing and analytics.",
-    tags: ["LLM", "TYPESCRIPT", "POSTGRES"],
-    icon: "terminal",
+      "An AI testing tool that parses Japanese unit specs, source code, and reference docs to generate an evidence guide, then cross-checks QA replication videos against it to confirm test steps were fulfilled correctly.",
+    tags: ["NEXT.JS", "AWS BEDROCK", "AWS ECS"],
+    icon: "fact_check",
     href: "/contact",
     accent: {
       border: "border-tertiary-container",
       icon: "text-tertiary",
       rotation: "rotate-6",
+    },
+  },
+  {
+    title: "Telerehabilitation Sensor Network",
+    description:
+      "A wireless sensor network for Parkinson's disease telerehabilitation using rhythmic auditory stimulation—published on Springer and presented at EAI PervasiveHealth 2021.",
+    tags: ["ARDUINO", "BLUETOOTH", "FLUTTER"],
+    icon: "sensors",
+    href: "https://link.springer.com/",
+    accent: {
+      border: "border-primary-container",
+      icon: "text-primary",
+      rotation: "-rotate-6",
     },
   },
 ];
